@@ -43,7 +43,7 @@ export default function LeftSideBar() {
 
     return (
 
-        < section className="fixed w-[275px] flex flex-col h-screen items-stretch " >
+        < section className="fixed w-[275px] flex flex-col h-screen items-stretch px-5 bg-black" >
 
             <div className='flex flex-col items-stretch h-full space-y-2 mt-4'>
                 {NAVIGATION_ITEMS.map((item) => (
@@ -61,7 +61,7 @@ export default function LeftSideBar() {
                     </Link>
                 ))}
 
-                <button className='bg-twitter-blue w-full rounded-3xl p-3 text-xl text-center hover:bg-opacity-70 transition duration-200'>
+                <button className='bg-twitterBlue w-full rounded-3xl p-3 text-xl text-center hover:bg-opacity-70 transition duration-200'>
                     Tweet
                 </button>
             </div>

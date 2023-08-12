@@ -15,7 +15,7 @@ const config: Config = {
       },
     },
     colors: {
-      'twitter-blue': 'rgb(29, 155, 240)'
+      twitterBlue: "rgb(29, 155, 240)"
     }
   },
   plugins: [],
