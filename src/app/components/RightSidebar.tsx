@@ -6,7 +6,7 @@ export default function RightSidebar() {
 
         <section className="w-full sticky flex flex-col right-0 top-2 mt-2 h-screen px-5 overflow-scroll">
             <div className="space-y-5">
-                <div className="relative w-full text-center bg-transparent">
+                <div className="relative w-full text-center bg-neutral-700/40 rounded-md">
                     <label
                         htmlFor='searchBox'
                         className="absolute top-0 left-0 h-full flex items-center justify-center ">
@@ -15,7 +15,7 @@ export default function RightSidebar() {
                     <input placeholder="Search" className="outline-none bg-transparent w-full h-full rounded-xl py-4 px-6 focus:border-2 focus:border-primary"></input>
                 </div>
 
-                <div className="flex flex-col rounded-xl bg-neutral-900 px-4">
+                <div className="flex flex-col rounded-xl bg-neutral-700/40 px-4">
                     <h3 className="font-bold text-lg my-2">What&apos;s happening?</h3>
 
                     <div>
@@ -32,7 +32,7 @@ export default function RightSidebar() {
                     </div>
                 </div>
 
-                <div className="flex flex-col bg-neutral-900 rounded-xl px-4 ">
+                <div className="flex flex-col rounded-lg px-4 bg-neutral-700/40">
                     <h3 className="font-semibold my-4">Who to follow?</h3>
 
                     <div>

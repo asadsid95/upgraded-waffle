@@ -43,12 +43,12 @@ export default function LeftSideBar() {
 
     return (
 
-        < section className="fixed w-[275px] flex flex-col h-screen items-stretch px-5 bg-black" >
+        < section className="fixed w-[275px] flex flex-col h-screen items-stretch px-5 bg-[rgb(30, 39, 50)]" >
 
             <div className='flex flex-col items-stretch h-full space-y-2 mt-4'>
                 {NAVIGATION_ITEMS.map((item) => (
                     <Link
-                        className='bg-black/60 flex items-center w-fit text-l justify-start space-x-2 rounded-3xl py-2 px-6 hover:bg-gray-400/50 transition duration-200'
+                        className=' flex items-center w-fit text-l justify-start space-x-2 rounded-3xl py-2 px-6 hover:bg-gray-400/50 transition duration-200'
                         href={`/${item.title.toLowerCase()}`} key={item.title}>
 
                         <div>
