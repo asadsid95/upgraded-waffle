@@ -6,13 +6,13 @@ export default function RightSidebar() {
 
         <section className="w-full sticky flex flex-col right-0 top-2 mt-2 h-screen px-5 overflow-scroll">
             <div className="space-y-5">
-                <div className="relative w-full text-center ">
+                <div className="relative w-full text-center bg-transparent">
                     <label
                         htmlFor='searchBox'
-                        className="absolute top-0 left-0 h-full flex items-center justify-center">
+                        className="absolute top-0 left-0 h-full flex items-center justify-center ">
                         <BsSearch className='w-5 h-5 text-gray-400' />
                     </label>
-                    <input placeholder="Search" className="outline-none bg-neutral/90 w-full h-full rounded-xl py-4 px-6 focus:border-2 focus:border-twitterBlue"></input>
+                    <input placeholder="Search" className="outline-none bg-transparent w-full h-full rounded-xl py-4 px-6 focus:border-2 focus:border-primary"></input>
                 </div>
 
                 <div className="flex flex-col rounded-xl bg-neutral-900 px-4">

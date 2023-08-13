@@ -61,7 +61,7 @@ export default function LeftSideBar() {
                     </Link>
                 ))}
 
-                <button className='bg-twitterBlue w-full rounded-2xl p-3 text-xl text-center hover:bg-opacity-70 transition duration-200'>
+                <button className='bg-primary w-full rounded-2xl p-3 text-xl text-center hover:bg-opacity-70 transition duration-200'>
                     Tweet
                 </button>
             </div>

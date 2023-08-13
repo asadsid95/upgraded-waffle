@@ -21,7 +21,7 @@ export default function Middlebar() {
                     <div className="w-full justify-between items-center flex pt-2">
                         <div><BsDot /></div>
                         <div className="w-full max-w-[100px] ">
-                            <button className='w-full items-center rounded-full space-x-2 px-2 py-2 text-center hover:bg-opacity-70 transition duration-200 bg-twitterBlue text-md font-normal'>Tweet</button>
+                            <button className='w-full items-center rounded-full space-x-2 px-2 py-2 text-center hover:bg-opacity-70 transition duration-200 bg-primary text-md font-normal'>Tweet</button>
                         </div>
                     </div>
 

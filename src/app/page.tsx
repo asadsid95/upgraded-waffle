@@ -13,8 +13,6 @@ const Home = () => {
 
         <RightSidebar />
 
-        {/* <main>Home Timeline</main>
-        <section>Right section</section> */}
       </div>
 
     </div>
