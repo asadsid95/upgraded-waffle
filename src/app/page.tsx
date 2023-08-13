@@ -5,7 +5,7 @@ import RightSidebar from "./components/RightSidebar"
 const Home = () => {
 
   return (
-    <div className="w-full h-screen flex justify-center items-center relative bg-black ">
+    <div className="w-full h-full flex justify-center items-center relative bg-black text-white">
       <div className="max-w-screen-xl w-full h-full flex relative">
         <LeftSideBar />
 

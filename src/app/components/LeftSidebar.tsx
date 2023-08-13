@@ -48,7 +48,7 @@ export default function LeftSideBar() {
             <div className='flex flex-col items-stretch h-full space-y-2 mt-4'>
                 {NAVIGATION_ITEMS.map((item) => (
                     <Link
-                        className='bg-black/60 flex items-center w-[50px] text-l justify-start space-x-2 rounded-3xl py-2 px-6 hover:bg-blue-400/10 transition duration-200'
+                        className='bg-black/60 flex items-center w-fit text-l justify-start space-x-2 rounded-3xl py-2 px-6 hover:bg-gray-400/50 transition duration-200'
                         href={`/${item.title.toLowerCase()}`} key={item.title}>
 
                         <div>
@@ -61,15 +61,15 @@ export default function LeftSideBar() {
                     </Link>
                 ))}
 
-                <button className='bg-twitterBlue w-full rounded-3xl p-3 text-xl text-center hover:bg-opacity-70 transition duration-200'>
+                <button className='bg-twitterBlue w-full rounded-2xl p-3 text-xl text-center hover:bg-opacity-70 transition duration-200'>
                     Tweet
                 </button>
             </div>
 
-            <button className='flex items-center rounded-full bg-transparent space-x-2 p-3 text-center hover:bg-opacity-70 transition duration-200 '>
+            <button className='flex items-center rounded-full bg-gray-400/80 space-x-2 p-3 text-center hover:bg-opacity-70 transition duration-200 '>
                 <div className='flex items-center space-x-2 '>
-                    <div className='rounded-full bg-red-500 w-12 h-8'></div>
-                    <div className='text-left text-sm'>
+                    <div className='rounded-full bg-red-500 w-10 h-8'></div>
+                    <div className='text-left text-xs'>
                         <div className='font-semibold'>Person Name</div>
                         <div className=''>@person</div>
                     </div>

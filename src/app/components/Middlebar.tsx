@@ -7,21 +7,21 @@ export default function Middlebar() {
 
     return (
         <main className="ml-[275px] flex flex-col w-[600px] h-full min-h-screen border-r-[1px] border-l-[1px] border-gray-500">
-            <h1 className="text-xl font-bold backdrop-blur sticky top-0">Home</h1>
+            <h1 className="text-xl font-bold backdrop-blur sticky top-0 ml-3">Home</h1>
 
             <div className="border-b-[1px] border-t-[1px] border-gray-500 relative space-x-2 items-stretch flex p-4">
                 <div className='rounded-full bg-red-500 w-12 h-12 flex-none'></div>
-                <div className="flex flex-col w-full h-full ">
-                    {/* <div> */}
-                    <input
-                        type='text'
-                        placeholder="What's happening?"
-                        className="w-full h-full bg-transparent border-b-[0.5px] border-gray-400 pb-4 outline-none border-none " />
-                    {/* </div> */}
+                <div className="flex flex-col w-full  ">
+                    <div className="align-text-top min-h-[150px]">
+                        <input
+                            type='text'
+                            placeholder="What's happening?"
+                            className="w-full h-full bg-gray-800 border-b-[0.5px] rounded-md border-gray-400 pb-4 outline-none border-none" />
+                    </div>
                     <div className="w-full justify-between items-center flex pt-2">
-                        <div></div>
+                        <div><BsDot /></div>
                         <div className="w-full max-w-[100px] ">
-                            <button className='w-full items-center rounded-full bg-transparent space-x-2 px-3 py-2 text-center hover:bg-opacity-70 transition duration-200 bg-twitterBlue text-xl font-bold'>Tweet</button>
+                            <button className='w-full items-center rounded-full space-x-2 px-2 py-2 text-center hover:bg-opacity-70 transition duration-200 bg-twitterBlue text-md font-normal'>Tweet</button>
                         </div>
                     </div>
 
@@ -30,7 +30,7 @@ export default function Middlebar() {
             </div>
 
             {Array.from({ length: 5 }).map((item, index) => (
-                <div key={index} className="flex space-x-4 px-4 border-b-[0.5px] ">
+                <div key={index} className="flex space-x-4 px-4 border-b-[0.5px] py-3">
                     <div className='rounded-full bg-red-500 w-12 h-12 flex-none'></div>
 
                     <div className='flex flex-col space-y-2'>
