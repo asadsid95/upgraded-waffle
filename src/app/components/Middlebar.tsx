@@ -2,9 +2,21 @@ import { BsChat, BsDot, BsThreeDots } from "react-icons/bs"
 import { AiOutlineRetweet, AiOutlineHeart } from 'react-icons/ai'
 import { IoStatsChart, IoShareOutline } from 'react-icons/io5'
 import ComposeTweet from "./server-component/compose-tweet"
+import { SupabaseClient } from "@supabase/supabase-js"
+import { Database } from "../lib/supabase.types"
+import { revalidateTag } from "next/cache"
+import dayjs from "dayjs"
+import relatveTime from 'dayjs/plugin/relativeTime'
+import { getTweets } from "../lib/supabase/getTweets"
+
+dayjs.extend(relatveTime)
 
 
-export default function Middlebar() {
+export default async function Middlebar() {
+
+    const res = await getTweets()
+
+
 
     return (
         <main className="xl:ml-[275px] flex flex-col w-[600px] h-full min-h-screen border-r-[1px] border-l-[1px] border-gray-500">
@@ -19,19 +31,19 @@ export default function Middlebar() {
 
             </div>
 
-            {Array.from({ length: 5 }).map((item, index) => (
-                <div key={index} className="flex space-x-4 px-4 border-b-[0.5px] py-3">
+            {res?.data && res.data.map((tweet, index) => (
+                <div key={tweet.id} className="flex space-x-4 px-4 border-b-[0.5px] py-3">
                     <div className='rounded-full bg-red-500 w-12 h-12 flex-none'></div>
 
                     <div className='flex flex-col space-y-2'>
                         <div className=' text-sm flex space-x-1 items-center justify-between'>
                             <div className="flex items-center space-x-1 w-full">
-                                <div className='font-bold'>Person Name</div>
-                                <div className='text-gray-500'>@person</div>
+                                <div className='font-bold'>{tweet.profiles.full ?? ""}</div>
+                                <div className='text-gray-500'>@{tweet.profiles.username}</div>
                                 <div>
                                     <BsDot />
                                 </div>
-                                <div className=''>Aug-12</div>
+                                <div className=''>{dayjs(tweet.created_at).fromNow()}</div>
                             </div>
                             <div>
                                 <BsThreeDots />
@@ -39,7 +51,7 @@ export default function Middlebar() {
                         </div>
 
                         <div className="text-sm">
-                            tweet caption Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, perspiciatis saepe. Aperiam aliquid debitis ipsam itaque a iusto perspiciatis, quod alias doloribus neque, atque officia quidem nisi laborum ipsum assumenda!
+                            {tweet.text}
                         </div>
                         <div className="bg-gray-400 aspect-square w-full h-96 rounded-xl">
                             Tweet

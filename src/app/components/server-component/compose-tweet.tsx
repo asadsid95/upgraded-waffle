@@ -6,6 +6,7 @@ import { randomUUID } from "crypto";
 import { cookies, headers } from "next/headers"
 import { SupabaseClient } from '@supabase/supabase-js'
 import FormClientComponent from "./FormClientComponent";
+import { revalidatePath } from "next/cache";
 
 export default function ComposeTweet() {
 
@@ -33,6 +34,8 @@ export default function ComposeTweet() {
             text: tweet.toString(),
             id: randomUUID()
         })
+
+        revalidatePath('/')
 
         console.log(data, error)
         return { data, error }

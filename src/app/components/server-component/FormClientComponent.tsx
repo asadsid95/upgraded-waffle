@@ -1,6 +1,7 @@
 'use client'
 
 import { PostgrestError } from "@supabase/supabase-js";
+import { useRef } from "react";
 import { BsDot } from "react-icons/bs";
 import { toast } from "sonner";
 
@@ -13,6 +14,8 @@ type FormClientComponentProps = {
 
 export default function FormClientComponent({ serverAction }: FormClientComponentProps) {
 
+    const resetRef = useRef<HTMLButtonElement>(null)
+
     const handleSubmitTweet = async (data: any) => {
         try {
             const res = await serverAction(data)
@@ -21,6 +24,7 @@ export default function FormClientComponent({ serverAction }: FormClientComponen
                 return toast.error(res.error.message)
             }
             toast.success("Tweet sent successfully!")
+            resetRef.current?.click()
         } catch (error: any) {
             toast.error(error.message)
         }
@@ -40,6 +44,7 @@ export default function FormClientComponent({ serverAction }: FormClientComponen
                 <div><BsDot /></div>
                 <div className="w-full max-w-[100px] ">
                     <button type="submit" className='w-full items-center rounded-full space-x-2 px-2 py-2 text-center hover:bg-opacity-70 transition duration-200 bg-primary text-md font-normal'>Tweet</button>
+                    <button ref={resetRef} className="invisible" type="reset"></button>
                 </div>
             </div>
         </form>
