@@ -1,4 +1,4 @@
-'use client'
+'use server'
 
 import { TweetType } from "@/app/lib/supabase/queries"
 import dayjs from "dayjs"
@@ -10,16 +10,14 @@ import { useState, useTransition } from "react"
 import { toast } from "sonner"
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs"
 import { likeTweet } from "@/app/lib/supabase/mutation"
+import LikeButton from "./like-button"
 
 dayjs.extend(relatveTime)
 
 type TweetProps = {
     tweet: TweetType
 }
-export default function Tweet({ tweet }: TweetProps) {
-
-    const [supabase] = useState(() => createPagesBrowserClient());
-    let [isTweetPending, startTransition] = useTransition()
+export default async function Tweet({ tweet }: TweetProps) {
 
     return (
         <div key={tweet.id} className="flex space-x-4 px-4 border-b-[0.5px] py-3">
@@ -54,25 +52,7 @@ export default function Tweet({ tweet }: TweetProps) {
                     <div>
                         <AiOutlineRetweet />
                     </div>
-                    <button onClick={() => {
-                        supabase.auth.getUser().then((res) => {
-                            if (res.data && res.data.user) {
-                                const user = res.data.user
-                                startTransition(() =>
-                                    likeTweet({
-                                        tweetId: tweet.id,
-                                        userId: user.id
-                                    }))
-                            } else {
-                                toast('please log in to like a tweet')
-                            }
-                        }).catch(() => {
-                            toast.error('Authen failed')
-                        })
-
-                    }}>
-                        <AiOutlineHeart />
-                    </button>
+                    <LikeButton tweetId={tweet.id} />
                     <div>
                         <IoStatsChart />
                     </div>
