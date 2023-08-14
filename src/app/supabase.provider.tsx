@@ -4,15 +4,12 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 
-// createPagesBrowserClient
-
 import type { SupabaseClient } from "@supabase/auth-helpers-nextjs";
 import type { Database } from "@/app/lib/supabase.types";
 import { Dialog, DialogContent } from "@/app/components/ui/dialog";
 import { Input } from "@/app/components/ui/input";
 import { Button } from "@/app/components/ui/button";
 import { Toaster, toast } from "sonner";
-import { DialogClose } from "@radix-ui/react-dialog";
 
 type SupabaseContext = {
     supabase: SupabaseClient<Database>;
@@ -52,6 +49,7 @@ export default function SupabaseProvider({
                 }
             }
         })
+        // console.log(res)
     }
 
     useEffect(() => {
@@ -62,7 +60,6 @@ export default function SupabaseProvider({
         });
 
         supabase.auth.getSession().then((res) => {
-            console.log(res)
 
             if (!res.data.session) {
                 setIsOpen(true);
@@ -83,11 +80,11 @@ export default function SupabaseProvider({
                         <h3 className="text-white">Please sign in</h3>
 
                         <form onSubmit={submit_login}>
-                            <Input type="text" placeholder="email" onChange={(e) => setEmail(e.target.value)} />
+                            <Input type="email" placeholder="email" onChange={(e) => setEmail(e.target.value)} />
                             <Input type="text" placeholder="username" onChange={(e) => setUsername(e.target.value)} />
                             <p className="text-sm text-gray-300 my-2">You&apos;ll receive a magic link</p>
                             <div className="flex w-full justify-end">
-                                <Button className='bg-white text-black'>Login</Button>
+                                <Button className='bg-white text-black hover:text-white hover:border-white hover:border-2'>Login</Button>
                             </div>
                         </form>
 

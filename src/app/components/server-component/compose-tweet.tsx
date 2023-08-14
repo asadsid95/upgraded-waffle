@@ -24,11 +24,9 @@ export default function ComposeTweet() {
 
         const supabaseServer = new SupabaseClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SECRET_KEY)
 
-
         const { data: userData, error: userError } = await supabaseClient.auth.getUser()
 
         if (userError) return;
-
 
         const { data, error } = await supabaseServer.from('tweets').insert({
             profile_id: userData.user.id,
