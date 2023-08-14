@@ -1,32 +1,48 @@
 // server component with server action 
 
-import { cookies } from "next/headers"
-import { BsDot } from "react-icons/bs"
+import { Database } from "@/app/lib/supabase.types";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { randomUUID } from "crypto";
+import { cookies, headers } from "next/headers"
+import { SupabaseClient } from '@supabase/supabase-js'
+import FormClientComponent from "./FormClientComponent";
 
 export default function ComposeTweet() {
 
-    async function addTweetToDB(tweet: FormData) {
+    async function addTweetToDB(formData: FormData) {
         'use server'
 
+        const tweet = formData.get('tweet')
 
-        console.log(tweet)
+        if (!tweet) return;
+
+        const supabaseClient = createServerComponentClient<Database>({ cookies, headers })
+
+        if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SECRET_KEY) {
+            return { error: { message: "supa base credentials not provided!" } as any }
+        }
+
+        const supabaseServer = new SupabaseClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SECRET_KEY)
+
+
+        const { data: userData, error: userError } = await supabaseClient.auth.getUser()
+
+        if (userError) return;
+
+
+        const { data, error } = await supabaseServer.from('tweets').insert({
+            profile_id: userData.user.id,
+            text: tweet.toString(),
+            id: randomUUID()
+        })
+
+        console.log(data, error)
+        return { data, error }
     }
 
+    // passing a server action into a client component
     return (
-        <form action={addTweetToDB as any}>
-            <div className="align-text-top min-h-[150px]">
-                <input
-                    type='text'
-                    name='tweet'
-                    placeholder="What's happening?"
-                    className="w-full h-full bg-gray-800 border-b-[0.5px] rounded-md border-gray-400 pb-4 outline-none border-none" />
-            </div>
-            <div className="w-full justify-between items-center flex pt-2">
-                <div><BsDot /></div>
-                <div className="w-full max-w-[100px] ">
-                    <button type="submit" className='w-full items-center rounded-full space-x-2 px-2 py-2 text-center hover:bg-opacity-70 transition duration-200 bg-primary text-md font-normal'>Tweet</button>
-                </div>
-            </div>
-        </form>
+        <FormClientComponent
+            serverAction={addTweetToDB} />
     )
 }

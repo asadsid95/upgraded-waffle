@@ -80,7 +80,7 @@ export default function SupabaseProvider({
                 <Toaster />
                 <Dialog open={isOpen} onOpenChange={setIsOpen}>
                     <DialogContent className="bg-black p-6 text-black">
-                        <h3>Please sign in</h3>
+                        <h3 className="text-white">Please sign in</h3>
 
                         <form onSubmit={submit_login}>
                             <Input type="text" placeholder="email" onChange={(e) => setEmail(e.target.value)} />
