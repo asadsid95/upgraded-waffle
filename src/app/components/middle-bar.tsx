@@ -1,10 +1,7 @@
 import { BsChat, BsDot, BsThreeDots } from "react-icons/bs"
 import { AiOutlineRetweet, AiOutlineHeart } from 'react-icons/ai'
 import { IoStatsChart, IoShareOutline } from 'react-icons/io5'
-import ComposeTweet from "./server-component/compose-tweet"
-import { SupabaseClient } from "@supabase/supabase-js"
-import { Database } from "../lib/supabase.types"
-import { revalidateTag } from "next/cache"
+import ComposeTweet from "./server-components/compose-tweet"
 import dayjs from "dayjs"
 import relatveTime from 'dayjs/plugin/relativeTime'
 import { getTweets } from "../lib/supabase/getTweets"

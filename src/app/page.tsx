@@ -1,6 +1,6 @@
-import LeftSideBar from "./components/LeftSidebar"
-import Middlebar from "./components/Middlebar"
-import RightSidebar from "./components/RightSidebar"
+import LeftSideBar from "./components/left-sidebar"
+import Middlebar from "./components/middle-bar"
+import RightSidebar from "./components/right-sidebar"
 
 const Home = async () => {
 
