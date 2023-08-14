@@ -5,14 +5,14 @@ import { useRef } from "react";
 import { BsDot } from "react-icons/bs";
 import { toast } from "sonner";
 
-type FormClientComponentProps = {
+type ComposeTweetFormProps = {
     serverAction: (formData: FormData) => Promise<
         | { data: null; error: PostgrestError | null; }
         | { error: { message: string }; data?: undefined }
         | undefined>
 }
 
-export default function FormClientComponent({ serverAction }: FormClientComponentProps) {
+export default function ComposeTweetForm({ serverAction }: ComposeTweetFormProps) {
 
     const resetRef = useRef<HTMLButtonElement>(null)
 
