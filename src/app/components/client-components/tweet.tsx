@@ -1,6 +1,6 @@
 'use client'
 
-import { TweetType, likeTweet } from "@/app/lib/supabase/getTweets"
+import { TweetType } from "@/app/lib/supabase/queries"
 import dayjs from "dayjs"
 import { AiOutlineRetweet, AiOutlineHeart } from "react-icons/ai"
 import { BsChat, BsDot, BsThreeDots } from "react-icons/bs"
@@ -9,6 +9,7 @@ import relatveTime from 'dayjs/plugin/relativeTime'
 import { useState, useTransition } from "react"
 import { toast } from "sonner"
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs"
+import { likeTweet } from "@/app/lib/supabase/mutation"
 
 dayjs.extend(relatveTime)
 
