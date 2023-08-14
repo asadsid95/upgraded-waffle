@@ -5,7 +5,7 @@ import { BsDot } from "react-icons/bs"
 
 export default function ComposeTweet() {
 
-    async function addTweetToDB(tweet: string) {
+    async function addTweetToDB(tweet: FormData) {
         'use server'
 
 
@@ -17,6 +17,7 @@ export default function ComposeTweet() {
             <div className="align-text-top min-h-[150px]">
                 <input
                     type='text'
+                    name='tweet'
                     placeholder="What's happening?"
                     className="w-full h-full bg-gray-800 border-b-[0.5px] rounded-md border-gray-400 pb-4 outline-none border-none" />
             </div>
