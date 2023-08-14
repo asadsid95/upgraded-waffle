@@ -43,7 +43,7 @@ export default function LeftSideBar() {
 
     return (
 
-        < section className="fixed w-[275px] flex flex-col h-screen items-stretch px-5 bg-[rgb(30, 39, 50)]" >
+        < section className="fixed w-[275px] hidden xl:flex flex-col h-screen items-stretch px-5 bg-[rgb(30, 39, 50)]" >
 
             <div className='flex flex-col items-stretch h-full space-y-2 mt-4'>
                 {NAVIGATION_ITEMS.map((item) => (

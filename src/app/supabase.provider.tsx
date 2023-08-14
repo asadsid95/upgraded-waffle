@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { createBrowserSupabaseClient, createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
+import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 
 // createPagesBrowserClient
@@ -95,11 +95,9 @@ export default function SupabaseProvider({
 
                 </Dialog>
 
-                {/* <div >
-                    <input placeholder="enter username" />
-                </div> */}
 
-                {/* <Toaster />
+                {/* 
+                <Toaster />
                 <Dialog open={isOpen} onOpenChange={setIsOpen}>
                     <DialogContent className="p-6">
                         <h3 className="text-lg my-1">Please sign in to continue</h3>

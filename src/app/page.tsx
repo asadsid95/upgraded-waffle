@@ -7,7 +7,7 @@ const Home = async () => {
   return (
     <div className="w-full h-full flex justify-center items-center relative bg-[#15202B] text-white">
 
-      <div className="max-w-screen-xl w-full h-full flex relative">
+      <div className="xl:max-w-[70vw] w-full h-full flex relative">
         <LeftSideBar />
 
         <Middlebar />

@@ -4,7 +4,7 @@ export default function RightSidebar() {
 
     return (
 
-        <section className="w-full sticky flex flex-col right-0 top-2 mt-2 h-screen px-5 overflow-scroll">
+        <section className="w-full sticky hidden xl:flex flex-col right-0 top-2 mt-2 h-screen px-5 overflow-scroll">
             <div className="space-y-5">
                 <div className="relative w-full text-center bg-neutral-700/40 rounded-md">
                     <label
