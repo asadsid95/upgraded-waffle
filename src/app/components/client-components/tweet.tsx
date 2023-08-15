@@ -18,12 +18,12 @@ type TweetProps = {
 
 export default async function Tweet({ tweet, userId }: TweetProps) {
 
-    const getTweetLikesCount = await getLikesCount(tweet.id)
+    // const getTweetLikesCount = await getLikesCount(tweet.id)
 
-    const isUserHasLiked = await isLiked({
-        tweetId: tweet.id,
-        userId: userId
-    })
+    // const isUserHasLiked = await isLiked({
+    //     tweetId: tweet.id,
+    //     userId: userId
+    // })
 
     return (
         <div className="flex space-x-4 px-4 border-b-[0.5px] py-3">
@@ -32,8 +32,8 @@ export default async function Tweet({ tweet, userId }: TweetProps) {
             <div className='flex flex-col space-y-2'>
                 <div className=' text-sm flex space-x-1 items-center justify-between'>
                     <div className="flex items-center space-x-1 w-full">
-                        <div className='font-bold'>{tweet.profiles.full ?? ""}</div>
-                        <div className='text-gray-500'>@{tweet.profiles.username}</div>
+                        <div className='font-bold'>{tweet.full_name ?? ""}</div>
+                        <div className='text-gray-500'>@{tweet.username}</div>
                         <div>
                             <BsDot />
                         </div>
@@ -60,8 +60,8 @@ export default async function Tweet({ tweet, userId }: TweetProps) {
                     </div>
                     <LikeButton
                         tweetId={tweet.id}
-                        likesCount={getTweetLikesCount}
-                        isUserHasLiked={isUserHasLiked}
+                        likesCount={tweet.likes_count}
+                        isUserHasLiked={tweet.user_has_liked}
                     />
                     <div>
                         <IoStatsChart />

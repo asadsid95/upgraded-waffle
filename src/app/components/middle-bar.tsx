@@ -7,12 +7,13 @@ import { cookies, headers } from "next/headers"
 
 export default async function Middlebar() {
 
-    const res = await getTweets()
 
     const supabaseClient = createServerComponentClient<Database>({ cookies, headers })
     const { data: userData, error: userError } = await supabaseClient.auth.getUser()
 
-    // console.log(userData.user.id)
+    const res = await getTweets(userData.user?.id)
+
+    console.log(res)
 
     return (
         <main className="xl:ml-[275px] flex flex-col w-[600px] h-full min-h-screen border-r-[1px] border-l-[1px] border-gray-500">

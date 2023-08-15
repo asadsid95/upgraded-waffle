@@ -42,7 +42,7 @@ export default function LikeButton({ tweetId, likesCount, isUserHasLiked }: Like
             {
                 isUserHasLiked ? <AiFillHeart className='text-rose-600' /> : <AiOutlineHeart />
             }
-            <span>{likesCount.count ?? 0}</span>
+            <span>{likesCount ?? 0}</span>
         </button>
     )
 }
