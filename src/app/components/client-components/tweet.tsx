@@ -6,17 +6,24 @@ import { BsChat, BsDot, BsThreeDots } from "react-icons/bs"
 import { IoStatsChart, IoShareOutline } from "react-icons/io5"
 import relatveTime from 'dayjs/plugin/relativeTime'
 import LikeButton from "./like-button"
-import { getLikesCount } from "@/app/lib/supabase/queries"
+import { getLikesCount, isLiked } from "@/app/lib/supabase/queries"
+
 
 dayjs.extend(relatveTime)
 
 type TweetProps = {
-    tweet: any
+    tweet: any,
+    userId?: any
 }
 
-export default async function Tweet({ tweet }: TweetProps) {
+export default async function Tweet({ tweet, userId }: TweetProps) {
 
     const getTweetLikesCount = await getLikesCount(tweet.id)
+
+    const isUserHasLiked = await isLiked({
+        tweetId: tweet.id,
+        userId: userId
+    })
 
     return (
         <div className="flex space-x-4 px-4 border-b-[0.5px] py-3">
@@ -51,7 +58,11 @@ export default async function Tweet({ tweet }: TweetProps) {
                     <div>
                         <AiOutlineRetweet />
                     </div>
-                    <LikeButton tweetId={tweet.id} likesCount={getTweetLikesCount} />
+                    <LikeButton
+                        tweetId={tweet.id}
+                        likesCount={getTweetLikesCount}
+                        isUserHasLiked={isUserHasLiked}
+                    />
                     <div>
                         <IoStatsChart />
                     </div>

@@ -1,10 +1,18 @@
 import ComposeTweet from "./server-components/compose-tweet"
 import { getTweets } from "../lib/supabase/queries"
 import Tweet from "./client-components/tweet"
+import { SupabaseClient, createServerComponentClient } from "@supabase/auth-helpers-nextjs"
+import { Database } from "@/app/lib/supabase.types"
+import { cookies, headers } from "next/headers"
 
 export default async function Middlebar() {
 
     const res = await getTweets()
+
+    const supabaseClient = createServerComponentClient<Database>({ cookies, headers })
+    const { data: userData, error: userError } = await supabaseClient.auth.getUser()
+
+    // console.log(userData.user.id)
 
     return (
         <main className="xl:ml-[275px] flex flex-col w-[600px] h-full min-h-screen border-r-[1px] border-l-[1px] border-gray-500">
@@ -20,7 +28,7 @@ export default async function Middlebar() {
             </div>
 
             {res?.data && res.data.map((tweet, index) => (
-                <Tweet key={tweet.id} tweet={tweet} />
+                <Tweet key={tweet.id} tweet={tweet} userId={userData.user?.id} />
             ))}
 
         </main>
