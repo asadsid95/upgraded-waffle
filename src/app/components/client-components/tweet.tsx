@@ -15,12 +15,12 @@ import LikeButton from "./like-button"
 dayjs.extend(relatveTime)
 
 type TweetProps = {
-    tweet: TweetType
+    tweet: any
 }
 export default async function Tweet({ tweet }: TweetProps) {
 
     return (
-        <div key={tweet.id} className="flex space-x-4 px-4 border-b-[0.5px] py-3">
+        <div className="flex space-x-4 px-4 border-b-[0.5px] py-3">
             <div className='rounded-full bg-red-500 w-12 h-12 flex-none'></div>
 
             <div className='flex flex-col space-y-2'>

@@ -10,7 +10,7 @@ type LikeButtonProps = {
     tweetId: string
 }
 
-export default function LikeButton({ }: LikeButtonProps) {
+export default function LikeButton({ tweetId }: LikeButtonProps) {
 
     const [supabase] = useState(() => createPagesBrowserClient());
     let [isTweetPending, startTransition] = useTransition()

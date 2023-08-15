@@ -6,9 +6,6 @@ export default async function Middlebar() {
 
     const res = await getTweets()
 
-    console.log("Tweets: ")
-    console.log(res)
-
     return (
         <main className="xl:ml-[275px] flex flex-col w-[600px] h-full min-h-screen border-r-[1px] border-l-[1px] border-gray-500">
             <h1 className="text-xl font-bold backdrop-blur sticky top-0 ml-3">Home</h1>
