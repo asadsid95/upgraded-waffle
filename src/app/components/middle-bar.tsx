@@ -11,7 +11,7 @@ export default async function Middlebar() {
             <h1 className="text-xl font-bold backdrop-blur sticky top-0 ml-3">Home</h1>
 
             <div className="border-b-[1px] border-t-[1px] border-gray-500 relative space-x-2 items-stretch flex p-4">
-                <div className='rounded-full bg-red-500 w-12 h-12 flex-none'></div>
+                <div className='rounded-full bg-gray-500 w-12 h-12 flex-none'></div>
                 <div className="flex flex-col w-full  ">
 
                     <ComposeTweet />

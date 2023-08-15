@@ -68,7 +68,7 @@ export default function LeftSideBar() {
 
             <button className='flex items-center rounded-full bg-gray-400/80 space-x-2 p-3 text-center hover:bg-opacity-70 transition duration-200 '>
                 <div className='flex items-center space-x-2 '>
-                    <div className='rounded-full bg-red-500 w-10 h-8'></div>
+                    <div className='rounded-full bg-gray-500 w-10 h-8'></div>
                     <div className='text-left text-xs'>
                         <div className='font-semibold'>Person Name</div>
                         <div className=''>@person</div>

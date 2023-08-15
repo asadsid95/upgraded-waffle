@@ -7,11 +7,13 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { toast } from "sonner";
 
 type LikeButtonProps = {
-    tweetId: string
+    tweetId: string;
+    likesCount: number
 }
 
-export default function LikeButton({ tweetId }: LikeButtonProps) {
+export default function LikeButton({ tweetId, likesCount }: LikeButtonProps) {
 
+    console.log(likesCount)
     const [supabase] = useState(() => createPagesBrowserClient());
     let [isTweetPending, startTransition] = useTransition()
 
@@ -33,6 +35,7 @@ export default function LikeButton({ tweetId }: LikeButtonProps) {
             })
 
         }}>
+            <span>{likesCount.count}</span>
             <AiOutlineHeart />
         </button>
     )

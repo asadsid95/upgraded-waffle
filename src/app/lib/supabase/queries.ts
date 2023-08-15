@@ -21,7 +21,8 @@ export const getTweets = async () => {
 }
 
 export const getLikesCount = async (tweetId: string) => {
-    const res = await supabaseServer.from('likes').select('count(*)').eq('tweet_id', tweetId)
-    console.log(res)
+    const res = await supabaseServer.from('likes').select('id', { count: 'exact' }).eq('tweet_id', tweetId)
+    // console.log(res)
+
     return res
 }

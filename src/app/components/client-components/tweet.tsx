@@ -1,27 +1,26 @@
 'use server'
 
-import { TweetType } from "@/app/lib/supabase/queries"
 import dayjs from "dayjs"
 import { AiOutlineRetweet, AiOutlineHeart } from "react-icons/ai"
 import { BsChat, BsDot, BsThreeDots } from "react-icons/bs"
 import { IoStatsChart, IoShareOutline } from "react-icons/io5"
 import relatveTime from 'dayjs/plugin/relativeTime'
-import { useState, useTransition } from "react"
-import { toast } from "sonner"
-import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs"
-import { likeTweet } from "@/app/lib/supabase/mutation"
 import LikeButton from "./like-button"
+import { getLikesCount } from "@/app/lib/supabase/queries"
 
 dayjs.extend(relatveTime)
 
 type TweetProps = {
     tweet: any
 }
+
 export default async function Tweet({ tweet }: TweetProps) {
+
+    const getTweetLikesCount = await getLikesCount(tweet.id)
 
     return (
         <div className="flex space-x-4 px-4 border-b-[0.5px] py-3">
-            <div className='rounded-full bg-red-500 w-12 h-12 flex-none'></div>
+            <div className='rounded-full bg-gray-500 w-12 h-12 flex-none'></div>
 
             <div className='flex flex-col space-y-2'>
                 <div className=' text-sm flex space-x-1 items-center justify-between'>
@@ -52,7 +51,7 @@ export default async function Tweet({ tweet }: TweetProps) {
                     <div>
                         <AiOutlineRetweet />
                     </div>
-                    <LikeButton tweetId={tweet.id} />
+                    <LikeButton tweetId={tweet.id} likesCount={getTweetLikesCount} />
                     <div>
                         <IoStatsChart />
                     </div>

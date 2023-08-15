@@ -39,7 +39,7 @@ export default function RightSidebar() {
                         {Array.from({ length: 5 }).map((item, index) => (
                             <div key={index} className="flex justify-between items-center space-y-2 rounded-md hover:bg-gray-500/50 transition duration-200 last:rounded-b-xl">
                                 <div className="flex items-center space-x-2">
-                                    <div className='rounded-full bg-red-500 w-8 h-8 flex-none'></div>
+                                    <div className='rounded-full bg-gray-500 w-8 h-8 flex-none'></div>
                                     <div className=' text-sm flex flex-col'>
                                         <div className='font-semibold'>Person Name</div>
                                         <div className='text-xs text-gray-400'>@person</div>
