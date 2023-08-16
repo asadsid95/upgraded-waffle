@@ -19,7 +19,7 @@ export default function ComposeTweetForm({ serverAction }: ComposeTweetFormProps
     const handleSubmitTweet = async (data: any) => {
         try {
             const res = await serverAction(data)
-            console.log(res)
+            // console.log(res)
             if (res?.error) {
                 return toast.error(res.error.message)
             }

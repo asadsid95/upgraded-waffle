@@ -37,7 +37,7 @@ export default function ComposeTweet() {
 
         revalidatePath('/')
 
-        console.log(data, error)
+        // console.log(data, error)
         return { data, error }
     }
 

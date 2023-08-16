@@ -13,7 +13,7 @@ export default async function Middlebar() {
 
     const res = await getTweets(userData.user?.id)
 
-    console.log(res)
+    // console.log(res)
 
     return (
         <main className="xl:ml-[275px] flex flex-col w-[600px] h-full min-h-screen border-r-[1px] border-l-[1px] border-gray-500">

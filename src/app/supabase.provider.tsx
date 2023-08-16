@@ -37,7 +37,7 @@ export default function SupabaseProvider({
         const { data, error } = await supabase.from('profiles').select().eq('username', username.trim())
 
         if (data && data?.length > 0) {
-            console.log(data)
+            // console.log(data)
             return toast.error('username already exists')
         }
 

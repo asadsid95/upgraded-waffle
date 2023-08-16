@@ -14,7 +14,7 @@ type LikeButtonProps = {
 
 export default function LikeButton({ tweetId, likesCount, isUserHasLiked }: LikeButtonProps) {
 
-    console.log(likesCount)
+    // console.log(likesCount)
     const [supabase] = useState(() => createPagesBrowserClient());
     let [isTweetPending, startTransition] = useTransition()
 

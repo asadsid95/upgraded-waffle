@@ -51,7 +51,7 @@ export const getTweets = async (currentUserID: string) => {
         console.log(error.message)
     }
 
-    // pool.end()
+    pool.end()
 
 
 
